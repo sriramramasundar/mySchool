@@ -1,0 +1,70 @@
+
+CREATE TABLE `AUTHNTCTN`  
+(  
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `RLE` varchar(60) NOT NULL,  
+  `USR_ID` varchar(100) NOT NULL,  
+  `PSSWRD` varchar(50) DEFAULT NULL,  
+  PRIMARY KEY (`ID`)  
+);
+commit;
+
+CREATE TABLE `SCL`  
+(  
+  `ID` int(19) NOT NULL AUTO_INCREMENT,
+   `NM` varchar(255) NOT NULL,
+    `BOARD` varchar(255) NOT NULL,
+     `ADDRESS` varchar(255) NOT NULL,
+      `LAND_MARK` varchar(255),
+       `DSTRCT` varchar(255) NOT NULL,
+        `STATE` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`)  
+);
+commit;
+
+CREATE TABLE `TCHR`  
+(  
+  `ID` int(19) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ID`)  
+);
+commit;
+
+
+CREATE TABLE `ADDR`  
+(  
+  `USR_ID` varchar(255) NOT NULL,
+   `FRST_LN` varchar(255) NOT NULL,
+   `SCND_LN` varchar(255) ,
+   `THRD_LN` varchar(255) ,
+    `LNDMRK` varchar(255) ,
+     `DSTRT` varchar(255) ,
+      `ST` varchar(255) NOT NULL,
+      PN_CD INT(10) NOT NULL
+);
+commit;
+
+CREATE TABLE `STD`  
+(  
+  `ID` int(19) NOT NULL AUTO_INCREMENT,
+   `SCL_ID` int(19) NOT NULL,
+   `TCHR_ID` int(19) NOT NULL,
+   `USR_ID` varchar(255) NOT NULL,
+   `FRST_NM` varchar(255) NOT NULL,
+   `LST_NM` varchar(255) ,
+   `CLS` varchar(255) NOT NULL,
+   `SCTN` varchar(255),
+   `FTHR_NM` varchar(255) ,
+   `MTHR_NM` varchar(255) ,
+   `GRDN_NM` varchar(255) ,
+   `PRIMARY_LANG` varchar(255) NOT NULL,
+   `ID_MARK_1` varchar(255) ,
+   `ID_MARK_2` varchar(255) ,
+	`DOB` DATE NOT NULL,
+    `EMAIL` varchar(255) NOT NULL,
+    `PHONE` varchar(255) NOT NULL,
+    `PHY_CHLNGD` boolean NOT NULL default 0,
+	PRIMARY KEY (`ID`, `user_id`),
+	FOREIGN KEY(SCL_ID) REFERENCES scl(id),
+    FOREIGN KEY(tchr_id) REFERENCES tchr(id)
+);
+commit;
