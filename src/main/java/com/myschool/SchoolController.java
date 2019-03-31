@@ -37,5 +37,15 @@ public class SchoolController {
         return ret;
 
     }
+    
+    @GetMapping(path = "/getUser")
+    @ResponseBody
+    public void getUser() {
+
+    	System.out.println("Inside get User");
+ 
+
+    }
+    
 	
 }

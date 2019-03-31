@@ -18,6 +18,11 @@ CREATE TABLE `SCL`
       `LAND_MARK` varchar(255),
        `DSTRCT` varchar(255) NOT NULL,
         `STATE` varchar(255) NOT NULL,
+        `PN_CD` int(10) NOT NULL,
+        `PHNE_NUM_1` int(19) NOT NULL,
+        `PHNE_NUM_2` int(19),
+        `PHNE_NUM_3` int(19),
+        `ACTV` boolean default 0,
   PRIMARY KEY (`ID`)  
 );
 commit;
